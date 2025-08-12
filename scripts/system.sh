@@ -40,9 +40,6 @@ checkPackageManager() {
         sudo -A /bin/bash -c "NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         install_result=$?
         
-        # Cleanup askpass helper
-        cleanup_askpass
-        
         if [ $install_result -ne 0 ]; then
             printf "%b\n" "${RED}Failed to install Homebrew${RC}"
             exit 1
