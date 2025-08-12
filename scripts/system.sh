@@ -306,3 +306,4 @@ installVsCodium
 install1Passowrd
 installonlyoffice
 installfilen
+cleanup_askpass

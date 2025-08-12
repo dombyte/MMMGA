@@ -22,10 +22,10 @@ return 0
 
 setup_askpass() {
     # Create a temporary askpass helper script
-    ASKPASS_SCRIPT="/tmp/macutil_askpass_$$"
+    ASKPASS_SCRIPT="/tmp/mmmga_askpass_$$"
     cat > "$ASKPASS_SCRIPT" << 'EOF'
 #!/bin/sh
-osascript -e 'display dialog "Administrator password required for MacUtil setup:" default answer "" with hidden answer' -e 'text returned of result' 2>/dev/null
+osascript -e 'display dialog "Administrator password required for MMMGA setup:" default answer "" with hidden answer' -e 'text returned of result' 2>/dev/null
 EOF
     chmod +x "$ASKPASS_SCRIPT"
     export SUDO_ASKPASS="$ASKPASS_SCRIPT"
