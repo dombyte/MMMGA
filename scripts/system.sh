@@ -206,9 +206,9 @@ setupKittyConfig() {
         cp -r "${HOME}/.config/kitty" "${HOME}/.config/kitty-bak"
     fi
     mkdir -p "${HOME}/.config/kitty/"
-    curl -sSLo "${HOME}/.config/kitty/kitty.conf" https://github.com/dombyte/dotfiles/raw/mainkde/.config/kitty/kitty.conf
-    curl -sSLo "${HOME}/.config/kitty/current-theme.conf" https://github.com/dombyte/dotfiles/raw/main/kde/.config/kitty/current-theme.conf
-    curl -sSLo "${HOME}/.config/kitty/dark-theme.auto.conf" https://github.com/dombyte/dotfiles/blob/raw/main/.config/kitty/dark-theme.auto.conf
+    curl -sSLo "${HOME}/.config/kitty/kitty.conf" https://raw.githubusercontent.com/dombyte/dotfiles/main/kde/.config/kitty/kitty.conf
+    curl -sSLo "${HOME}/.config/kitty/current-theme.conf" https://raw.githubusercontent.com/dombyte/dotfiles/main/kde/.config/kitty/current-theme.conf
+    curl -sSLo "${HOME}/.config/kitty/dark-theme.auto.conf" https://raw.githubusercontent.com/dombyte/dotfiles/main/kde/.config/kitty/dark-theme.auto.conf
 }
 
 
@@ -255,5 +255,3 @@ installFishShell
 installKitty
 setupKittyConfig
 installVsCodium
-killpid
-
