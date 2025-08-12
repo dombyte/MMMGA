@@ -180,9 +180,16 @@ removeAnimations() {
 
 
 additional_fonts() {
-    cd "$HOME" 
-    printf "%b\n" "${YELLOW}Install JetBrains Mono Fonts${RC}"
-    $ESCALATION_TOOL /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+    if ! brewprogram_exists font-jetbrains-mono; then
+        brew install --cask font-jetbrains-mono
+        if [ $? -ne 0 ]; then
+            printf "%b\n" "${RED}Failed to install font-jetbrains-mono. Please check your Homebrew installation or try again later.${RC}"
+            exit 1
+        fi
+        printf "%b\n" "${GREEN}font-jetbrains-mono installed successfully!${RC}"
+    else
+        printf "%b\n" "${GREEN}font-jetbrains-mono is already installed.${RC}"
+    fi
 }
 
 
@@ -242,9 +249,50 @@ installFishShell() {
 
 }
 
+install1Passowrd() {
+    if ! brewprogram_exists 1password; then
+        printf "%b\n" "${YELLOW}Installing 1password...${RC}"
+        brew install --cask 1password
+        if [ $? -ne 0 ]; then
+            printf "%b\n" "${RED}Failed to install 1password. Please check your Homebrew installation or try again later.${RC}"
+            exit 1
+        fi
+        printf "%b\n" "${GREEN}1password installed successfully!${RC}"
+    else
+        printf "%b\n" "${GREEN}1password is already installed.${RC}"
+    fi
 
+}
 
+installonlyoffice() {
+    if ! brewprogram_exists onlyoffice; then
+        printf "%b\n" "${YELLOW}Installing onlyoffice...${RC}"
+        brew install --cask onlyoffice
+        if [ $? -ne 0 ]; then
+            printf "%b\n" "${RED}Failed to install onlyoffice. Please check your Homebrew installation or try again later.${RC}"
+            exit 1
+        fi
+        printf "%b\n" "${GREEN}onlyoffice installed successfully!${RC}"
+    else
+        printf "%b\n" "${GREEN}onlyoffice is already installed.${RC}"
+    fi
 
+}
+
+installfilen() {
+    if ! brewprogram_exists filen; then
+        printf "%b\n" "${YELLOW}Installing filen...${RC}"
+        brew install --cask filen
+        if [ $? -ne 0 ]; then
+            printf "%b\n" "${RED}Failed to install filen. Please check your Homebrew installation or try again later.${RC}"
+            exit 1
+        fi
+        printf "%b\n" "${GREEN}filen installed successfully!${RC}"
+    else
+        printf "%b\n" "${GREEN}filen is already installed.${RC}"
+    fi
+
+}
 
 cleanup_system
 checkPackageManager
@@ -255,3 +303,6 @@ installFishShell
 installKitty
 setupKittyConfig
 installVsCodium
+install1Passowrd
+installonlyoffice
+installfilen
