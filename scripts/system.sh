@@ -34,10 +34,8 @@ checkPackageManager() {
         printf "%b\n" "${RED}Homebrew is not installed${RC}"
         printf "%b\n" "${YELLOW}Installing Homebrew...${RC}"
         
-        # Setup askpass helper for automated password handling
-        
         # Use sudo with askpass for non-interactive installation
-        sudo -A /bin/bash -c "NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /bin/bash -c "NONINTERACTIVE=1 $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         install_result=$?
         
         if [ $install_result -ne 0 ]; then
